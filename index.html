@@ -59,7 +59,7 @@
 </div>
 
 <!-- SOBRE NOSOTROS -->
-<section id="about" class="about-mf sect-pt4">
+<section id="about" class="about-mf sect-pt4 fade-section">
   <div class="container">
     <div class="box-shadow-full">
       
@@ -95,7 +95,7 @@
   </div>
 </section>
 
-<section class="brands sect-pt4 text-center">
+<section class="brands sect-pt4 text-center fade-section">
   <div class="container">
 
     <!-- CAJA -->
@@ -116,7 +116,7 @@
 </section>
 
 <!-- SERVICIOS -->
-<section id="service" class="services-mf sect-pt4">
+<section id="service" class="services-mf sect-pt4 fade-section">
   <div class="container text-center">
     <h3>Servicios</h3>
     <div class="row mt-4">
@@ -182,7 +182,7 @@
 
 <!-- TESTIMONIOS -->
 
-<section class="reviews sect-pt4">
+<section class="reviews sect-pt4 fade-section">
   <div class="container text-center">
     
     <h3>Opiniones de nuestros clientes</h3>
@@ -232,7 +232,7 @@
 
 
 <!-- CONTACTO -->
-<section id="contact" class="contact-pro sect-pt4">
+<section id="contact" class="contact-pro sect-pt4 fade-section">
   <div class="container">
     
     <div class="row">
@@ -284,6 +284,29 @@
 <a href="https://wa.me/34660398592" class="whatsapp-btn" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+  const faders = document.querySelectorAll('.fade-section');
+
+  const appearOptions = {
+    threshold: 0.2
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+
 
 </body>
 </html>
